@@ -1,9 +1,14 @@
+import { Profile } from '../components/profile/Profile';
+import user from '../user.json';
+
 export const App = () => {
   return (
     <div
       style={{
         height: '100vh',
         display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
@@ -11,6 +16,13 @@ export const App = () => {
       }}
     >
       React homework template
+      <Profile 
+      username={user.username}
+      tag={user.tag}
+      location={user.location}
+      avatar={user.avatar}
+      stats={user.stats} />
     </div>
+   
   );
 };
