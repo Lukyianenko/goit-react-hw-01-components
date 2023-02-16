@@ -1,15 +1,18 @@
 import PropTypes from "prop-types";
 import { Profile } from '../components/profile/Profile';
 import { Statistics } from '../components/statistics/Statistics';
+import { FriendList } from '../components/friendList/FriendList';
 import user from '../user.json';
 import data from '../data.json';
+import friends from '../friends.json';
 
 
 export const App = () => {
   return (
     <div
+
       style={{
-        height: '100vh',
+       
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -25,8 +28,8 @@ export const App = () => {
       location={user.location}
       avatar={user.avatar}
       stats={user.stats} />
-
       <Statistics stats={data}/>
+      <FriendList friend={friends}/>
     </div>
    
   );
@@ -52,3 +55,4 @@ Statistics.propTypes = {
 })
   ).isRequired 
 }
+

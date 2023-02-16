@@ -17,6 +17,7 @@ margin-top: 20px;
 font-size: 24px;
 color: #010101;
 text-align: center;
+padding: 15px 15px;
 `;
 
 export const ProfileText = styled.p`
@@ -34,7 +35,10 @@ export const ProfileText1 = styled.p`
 export const Stats = styled.ul`
     list-style: none;
     display: flex;
+    justify-content: center;
     margin-bottom: 0px;
+    width: 100%;
+    padding: 0px;
     `;
 
     export const StatsEl = styled.li`
