@@ -1,4 +1,5 @@
 import css from '../../components/friendList/FriendList.module.css';
+import PropTypes from "prop-types";
 
 export const FriendListPerson = ({ persons }) => {
     return (persons.map(( {avatar, name, isOnline, id}) => (
@@ -11,3 +12,12 @@ export const FriendListPerson = ({ persons }) => {
     )
 }
 
+FriendListPerson.propTypes = {
+    persons: PropTypes.arrayOf(PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.oneOf([true, false]),
+  })
+    ).isRequired 
+  }

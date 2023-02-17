@@ -1,10 +1,11 @@
-import PropTypes from "prop-types";
 import { Profile } from '../components/profile/Profile';
 import { Statistics } from '../components/statistics/Statistics';
 import { FriendList } from '../components/friendList/FriendList';
+import { TransactionHistory } from '../components/transactionHistory/TransactionHistory';
 import user from '../user.json';
 import data from '../data.json';
 import friends from '../friends.json';
+import transaction from '../transactions.json';
 
 
 export const App = () => {
@@ -30,29 +31,11 @@ export const App = () => {
       stats={user.stats} />
       <Statistics stats={data}/>
       <FriendList friend={friends}/>
+      <TransactionHistory datas={transaction} />
     </div>
    
   );
 };
 
-Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  stats: PropTypes.shape({
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
-  }),
-}
 
-Statistics.propTypes = {
-  stats: PropTypes.arrayOf(PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired,
-})
-  ).isRequired 
-}
 

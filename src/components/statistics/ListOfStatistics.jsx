@@ -1,4 +1,5 @@
 import css from '../../components/statistics/Statistics.module.css';
+import PropTypes from "prop-types";
 
 export const ListOfStatistics = ({items}) => {
     return (<ul className={css.statList}>
@@ -11,3 +12,11 @@ export const ListOfStatistics = ({items}) => {
     );
 }
 
+ListOfStatistics.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+})
+  ).isRequired 
+}
