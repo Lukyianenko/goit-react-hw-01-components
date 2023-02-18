@@ -1,25 +1,27 @@
 import css from '../../components/statistics/Statistics.module.css';
-import {ListOfStatistics} from '../../components/statistics/ListOfStatistics';
 import PropTypes from "prop-types";
 
-export const Statistics = ({stats, title}) => {
-    if(title) {
-        return (
-            <section className={css.statistics}>
-                <h2 className={css.titles}>{title}</h2>
-                    <ListOfStatistics items={stats} />
-            </section>
-            )
-    }
-    return (
-        <section className={css.statistics}>
-            <ListOfStatistics items={stats} />
-        </section>
-        )
-}
+export const Statistics = ({stats, title}) => (
+    <section className={css.statistics}>
+        { title && <h2 className={css.titles}>{title}</h2>}
+        <ul className={css.statList}>
+        {stats.map(item => (
+      <li className={css.item} key={item.id}>
+      <span className={css.label}>{item.label} </span>
+      <span className={css.percentage}>{item.percentage}%</span>
+        </li>))}
+        </ul>
+    </section>
+)
 
 
 Statistics.propTypes = {
+    stats: PropTypes.arrayOf(PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        percentage: PropTypes.number.isRequired,
+    })
+      ).isRequired,
     title: PropTypes.string,
   }
   
